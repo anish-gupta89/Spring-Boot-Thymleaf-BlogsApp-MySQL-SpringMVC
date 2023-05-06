@@ -2,7 +2,7 @@
 Realtime Blogs Application with Springboot, Thymeleaf and MySQL.
 
 Completed 
-Login 
+<li>Login 
 Signup
 Home View
 User Blog Dashboard
