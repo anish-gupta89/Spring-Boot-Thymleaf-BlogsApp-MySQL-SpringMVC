@@ -14,7 +14,7 @@ Realtime Blogs Application with Springboot, Thymeleaf and MySQL.
 <li>Search with AJAX</li>
 <li>Logout</li></li>
 
-
+<br>
 
 https://user-images.githubusercontent.com/47443012/236621238-4c208894-a247-49d6-ac3a-2568dcfc6286.mp4
 
