@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta http-equiv="x-ua-compatible" content="ie=edge" />
+<title>Ashok IT - Enquiry</title>
+<!-- MDB icon -->
+<link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
+<!-- Font Awesome -->
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
+<!-- Google Fonts Roboto -->
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
+<!-- MDB -->
+<link rel="stylesheet" href="css/bootstrap-login-form.min.css" />
+
+</head>
+
+<body>
+
+	<nav class="navbar navbar-expand-lg bg-body-tertiary">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="#"> <img alt="ashokit"
+				src="images/AshokIT-Logo.jpg" width=100%>
+			</a>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item"><a class="nav-link active"
+						aria-current="page" href="dashboard">Home</a></li>
+					<li class="nav-item"><a class="nav-link" href="#">Add
+							Enquiry</a></li>
+					<li class="nav-item"><a class="nav-link" href="viewenq">View
+							Enquiries</a></li>
+				</ul>
+				<a href="/" class="btn btn-danger">Logout</a>
+			</div>
+		</div>
+	</nav>
+	<!-- Start your project here-->
+
+
+	<section class="h-100 gradient-form" style="background-color: #eee;">
+		<div class="container py-5 h-100">
+			<div
+				class="row d-flex justify-content-center align-items-center h-100">
+				<div class="col-xl-10">
+					<div class="card rounded-3 text-black">
+						<div class="row g-0">
+							<div class="col-lg-6">
+								<div class="card-body p-md-5 mx-md-4">
+
+									<div class="text-center">
+										<h4 class="mt-1 mb-5 pb-1">Add Student Enquriy Here</h4>
+									</div>
+
+									<form th:action="@{/enquiry}" th:object="${enqdata}"
+										method="post" class="form">
+										<div class="form-outline mb-4">
+											<input type="text" id="studentname" class="form-control"
+												placeholder="Student Name" th:value="${studentName}"
+												th:field="*{studentName}"> <label class="form-label"
+												for="studentname">Student Name</label>
+										</div>
+										<input type="text" hidden="true" th:value="${enqId}"
+											th:field="*{enqId}">
+										<div class="form-outline mb-4">
+											<input type="text" id="contactnumber" class="form-control"
+												placeholder="Contact Number" th:field="*{phoneNumber}" /> <label
+												class="form-label" for="contactnumber">Contact
+												Number</label>
+										</div>
+
+										<div class="form-outline mb-4">
+											<label class="form-label" for="classMode">Class Mode</label>
+											<select class="form-select" id="classMode" name="classMode">
+												<option value="">-Select-</option>
+												<option th:each="option : ${classMode}"
+													th:selected="${option} == ${enqdata.classMode}"
+													th:value="${option}" th:text="${option}"></option>
+											</select>
+										</div>
+
+										<div class="form-outline mb-4">
+											<label class="form-label" for="className">Course</label> <select
+												class="form-select" id="className" name="className">
+												<option value="">-Select-</option>
+												<option th:each="option : ${courseList}"
+													th:value="${option}"
+													th:selected="${option} == ${enqdata.className}"
+													th:text="${option}"></option>
+											</select>
+										</div>
+										<div class="form-outline mb-4">
+											<label class="form-label" for="enqStatus">Enquiry
+												Status</label> <select id="enqStatus" name="enqStatus"
+												class="form-select">
+												<option value="">-Select-</option>
+												<option th:each="option : ${enqStatus}" th:value="${option}"
+													th:text="${option}"
+													th:selected="${option} == ${enqdata.enqStatus}"></option>
+											</select>
+										</div>
+
+										<div class="text-center pt-1 mb-5 pb-1">
+											<button
+												class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3"
+												type="submit">Submit</button>
+										</div>
+
+
+									</form>
+
+								</div>
+							</div>
+							<div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+								<img alt="" src="images/lady.jpg" width="70%">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End your project here-->
+
+	<!-- MDB -->
+	<script type="text/javascript" src="js/mdb.min.js"></script>
+	<!-- Custom scripts -->
+	<script type="text/javascript"></script>
+</body>
+
+</html>
