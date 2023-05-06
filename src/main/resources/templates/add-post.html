@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+<title>Add Post</title>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link
+	href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+</head>
+<style>
+.header {
+	padding-bottom: 1px;
+	margin-left: 50px;
+	margin-right: 50px;
+	text-align: center;
+	background: #000000;
+	color: white;
+	font-size: 15px;
+	margin-right: 50px;
+}
+</style>
+<script type="text/javascript" src="js/ckeditor/ckeditor.js"></script>
+<script>
+	window.onload = function() {
+		CKEDITOR.replace('textareaContent');
+	};
+</script>
+<body>
+	<div class="header">
+		<h1 style="text-align: center;">Add Post</h1>
+		<small class="form-text text-muted"><p>Its Anish Blogs App</p></small>
+	</div>
+	<div style="margin-top: 20px" class="container mt-10">
+		<div class="justify-content-center">
+			<form th:action="@{/addblog}" th:object="${add_blog_req}"
+				method="POST">
+				<div class="form-group">
+					<label for="exampleInputEmail1">Title</label> <input type="text"
+						class="form-control" id="exampleInputEmail1"
+						aria-describedby="emailHelp" placeholder="Title"
+						required="required" th:field="*{title}" th:value="${title}" />
+				</div>
+				<div class="form-group">
+					<label for="exampleInputPassword1">Short Description</label> <input
+						type="text" class="form-control" id="shortdescriotion"
+						placeholder="Short Description" required="required"
+						th:field="*{shortDescription}" th:value="${shortDescription}">
+				</div>
+
+				<input hidden="true" type="text" class="form-control" th:field="*{blogId}" th:value="${blogId}">
+				<div class="form-group">
+					<label for="exampleFormControlTextarea1">Content</label>
+					<textarea type="text" class="form-control" id="textareaContent"
+						rows="3" required="required" th:field="*{content}"
+						th:value="${content}"></textarea>
+				</div>
+				<button style="background: black;" type="submit"
+					class="form-control btn btn-primary submit px-3">POST</button>
+			</form>
+		</div>
+	</div>
+
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/popper.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/main.js"></script>
+
+</body>
+</html>
+

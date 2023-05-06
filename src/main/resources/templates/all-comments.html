@@ -17,7 +17,7 @@
 </head>
 <body>
 	<!-- Navbar -->
-	<nav style="flex-shrink: 0;"  class="navbar navbar-expand-lg navbar-dark bg-dark">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		<!-- Container wrapper -->
 		<div class="container-fluid">
 			<!-- Navbar brand -->
@@ -37,8 +37,8 @@
 				<!-- Left links -->
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-					<li class="nav-item active"><a class="nav-link" href="/user-index">Posts<span
-							class="sr-only">(current)</span>
+					<li class="nav-item active"><a class="nav-link"
+						href="/user-index">Posts<span class="sr-only">(current)</span>
 					</a></li>
 					<li class="nav-item"><a class="nav-link" href="/addblog">New
 							Post</a></li>
@@ -67,30 +67,27 @@
 
 
 								</div> -->
-								<table
-									class="table table-striped table-bordered table-hover">
+								<table class="table table-striped table-bordered table-hover">
 									<thead style="background: black;">
 										<tr>
 											<th style="color: white;" scope="col">SNo</th>
 											<th style="color: white;" scope="col">Post Title</th>
-											<th style="color: white;" scope="col">Post Short Description</th>
+											<th style="color: white;" scope="col">Post Short
+												Description</th>
 											<th style="color: white;" scope="col">Post Created On</th>
 											<th style="color: white;" scope="col">Action</th>
 										</tr>
 									</thead>
 									<tbody>
 
-										<tr  th:each="blog,iter : ${my_blog_list}">
+										<tr th:each="cmnt,iter : ${comments}">
 											<td><span th:text="${iter.index +1}">Index </span></td>
-											<td><span th:text="${blog.title}"> Title
-											</span></td>
-											<td><span th:text="${blog.shortDescription}">
-													Short Desc </span></td>
-											<td><span th:text="${blog.createdOn}">
-													Created On </span></td>
-											<td style="white-space: nowrap;"><a th:href="@{'addblog?id='+ ${blog.blogId}}"
-												class="btn btn-primary">Edit</a> <a
-												th:href="@{'delete?id='+ ${blog.blogId}}"
+											<td><span th:text="${cmnt.email}"> Title </span></td>
+											<td><span th:text="${cmnt.comment}"> Short Desc </span></td>
+											<td><span th:text="${cmnt.commentedOn}"> Created
+													On </span></td>
+											<td style="white-space: nowrap;"><a
+												th:href="@{'del-comment?id='+ ${cmnt.commentId}}"
 												class="btn btn-danger">Delete</a></td>
 										</tr>
 									</tbody>
@@ -108,28 +105,34 @@
 			<!-- Section: Social media -->
 			<section class="mb-0">
 				<!-- Facebook -->
-				<a class="btn btn-outline-light btn-floating m-1" href="https://www.facebook.com/anish.gupta89/"
-					role="button"><i class="fab fa-facebook-f"></i></a>
+				<a class="btn btn-outline-light btn-floating m-1"
+					href="https://www.facebook.com/anish.gupta89/" role="button"><i
+					class="fab fa-facebook-f"></i></a>
 
 				<!-- Twitter -->
-				<a class="btn btn-outline-light btn-floating m-1" href="https://twitter.com/engg_anish"
-					role="button"><i class="fab fa-twitter"></i></a>
+				<a class="btn btn-outline-light btn-floating m-1"
+					href="https://twitter.com/engg_anish" role="button"><i
+					class="fab fa-twitter"></i></a>
 
 				<!-- Google -->
-				<a class="btn btn-outline-light btn-floating m-1" href="https://www.google.com/"
-					role="button"><i class="fab fa-google"></i></a>
+				<a class="btn btn-outline-light btn-floating m-1"
+					href="https://www.google.com/" role="button"><i
+					class="fab fa-google"></i></a>
 
 				<!-- Instagram -->
-				<a class="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/anish.gupta0889/"
-					role="button"><i class="fab fa-instagram"></i></a>
+				<a class="btn btn-outline-light btn-floating m-1"
+					href="https://www.instagram.com/anish.gupta0889/" role="button"><i
+					class="fab fa-instagram"></i></a>
 
 				<!-- Linkedin -->
-				<a class="btn btn-outline-light btn-floating m-1" href="https://www.linkedin.com/in/anish-gupta-4b2b9915/"
+				<a class="btn btn-outline-light btn-floating m-1"
+					href="https://www.linkedin.com/in/anish-gupta-4b2b9915/"
 					role="button"><i class="fab fa-linkedin-in"></i></a>
 
 				<!-- Github -->
-				<a class="btn btn-outline-light btn-floating m-1" href="https://github.com/anish-gupta89"
-					role="button"><i class="fab fa-github"></i></a>
+				<a class="btn btn-outline-light btn-floating m-1"
+					href="https://github.com/anish-gupta89" role="button"><i
+					class="fab fa-github"></i></a>
 			</section>
 			<!-- Section: Social media -->
 		</div>
