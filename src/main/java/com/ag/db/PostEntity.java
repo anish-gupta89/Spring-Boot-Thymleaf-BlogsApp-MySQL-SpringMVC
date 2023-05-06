@@ -2,6 +2,7 @@ package com.ag.db;
 
 import java.time.LocalDate;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -36,9 +37,11 @@ public class PostEntity {
 	private String content;
 
 	@CreationTimestamp
+	@Column(updatable = false)
 	private LocalDate createdOn;
 
 	@UpdateTimestamp
+	@Column(updatable = true)
 	private LocalDate updatedOn;
 
 	@ManyToOne

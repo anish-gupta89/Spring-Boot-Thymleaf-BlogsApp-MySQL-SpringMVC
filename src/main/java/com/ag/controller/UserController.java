@@ -50,7 +50,6 @@ public class UserController {
 	
 	@PostMapping(value = "/signup")
 	public String doSignUp(@ModelAttribute("signupreq") SignUpRequestModel request,Model model) {
-		System.out.println(request);
 		 String response = userServices.signUp(request);
 		 if(response.equals(AppUtils.SIGN_UP_DUPLICATE_EMAIL_ERROR)) {
 			 model.addAttribute("errMsg", AppUtils.SIGN_UP_DUPLICATE_EMAIL_ERROR);
@@ -67,9 +66,5 @@ public class UserController {
 		return "redirect:/";
 	}
 	
-	@GetMapping(value = "/user-index")
-	public String userIndexLoad(Model model) {
-		return AppUtils.USER_INDEX;
-	}
 
 }
