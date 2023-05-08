@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+</head>
+<body>
+	<table>
+				<tr th:each="blog,iter : ${all_blog}">
+					<td><div class="card">
+							<h2 th:text="${blog.title}">TITLE HEADING</h2>
+							<h5 th:text="${blog.createdOn}">Title description, Dec 7,
+								2017</h5>
+							<p th:text="${blog.shortDescription}">Sunt in culpa qui
+								officia deserunt mollit anim id est laborum consectetur
+								adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+								dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+								exercitation ullamco.</p>
+							<a th:href="@{'getBlogById?id='+ ${blog.blogId}}"
+								style="color: blue; text-align: right;">Load More...</a>
+						</div></td>
+				</tr>
+			</table>
+</body>
+</html>
