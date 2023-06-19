@@ -1,0 +1,28 @@
+version: "3"
+services:
+  application:
+    image: akg24/anishblogapp
+    ports:
+      - "9090:9090"
+    networks:
+      - springboot-db-net
+    depends_on:
+      - mysqldb
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysqlcontainer:3306/blog_app?autoReconnect=true&useSSL=false
+    volumes:
+      - /data/springboot-app
+    
+  mysqldb:
+    image: mysql:5.7
+    restart: always
+    container_name: mysqlcontainer
+    networks:
+      - springboot-db-net
+    environment:
+      - MYSQL_ROOT_PASSWORD=Anish@123
+      - MYSQL_DATABASE=blog_app
+    volumes:
+      - /data/mysql
+networks:
+  springboot-db-net:
